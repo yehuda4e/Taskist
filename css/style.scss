@@ -51,13 +51,13 @@ input {
 }
 
 button {
-    background-color: #e3e3e3;
-    border: 1px dashed black;
+    background-color: #fff;
+    border: 2px solid black;
     padding: 5px;
     cursor: pointer;
 }
 
-label, button {
+label, #add {
     margin-left: 65px;
 }
 
