@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo Board</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <h1>My Task Board</h1>
+    <form>
+        <span></span>
+        <label for="name">Task Name</label>
+        <input type="text" id="name" required>
+        <label for="body">Task body</label>
+        <input type="text" id="body" required>
+        <label for="date">Finish Date</label>
+        <input type="date" id="date" required>
+        <label for="time">Finish Time</label>
+        <input type="time" id="time">
+        <button id="add">Add</button>
+        <button type="reset">Reset Form</button>
+    </form>
+
+    <main class="notes" id="notes"></main>
+
+<script src="app.js"></script>
+</body>
+</html>
