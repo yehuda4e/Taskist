@@ -5,6 +5,11 @@ document.getElementById('add').addEventListener('click', function(e) {
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
 
+    if (!name || !body || !date) {
+        alert('All fields are required');
+        return;
+    }
+
     if (new Date(date).setHours(0,0,0,0) < new Date().setHours(0,0,0,0)) {
         alert('The past is gone..')
         return;
