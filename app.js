@@ -9,13 +9,13 @@ document.getElementById('add').addEventListener('click', function(e) {
         alert('The past is gone..')
         return;
     }
+
     let note = { name, body, date, time};
     localStorage.setItem(name, JSON.stringify(note));
     addNote(note)
     document.forms[0].reset();
 });
 
-const notesSection = document.getElementById('notes');
 let notes = localStorage;
 for (let i = 0; i < notes.length; i++) {
     let note = JSON.parse(localStorage.getItem(notes.key(i)));
@@ -25,24 +25,27 @@ for (let i = 0; i < notes.length; i++) {
 const removeBtns = document.querySelectorAll('.note > .close');
 removeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        localStorage.removeItem(btn.dataset.task);
-        btn.parentElement.animate([
-            { opacity: 1},
-            { opacity: 0}
-        ], {
-            duration: 800,
-            easing: "ease-out"
-        });
-
-        setTimeout(() => btn.parentElement.remove(), 800);
-        
-    })
+        removeNote(btn);
+    });
 });
 
+function removeNote(note) {
+    localStorage.removeItem(note.dataset.task);
+    note.parentElement.animate([
+        { opacity: 1},
+        { opacity: 0}
+    ], {
+        duration: 800,
+        easing: "ease-out"
+    });
+    
+    setTimeout(() => note.parentElement.remove(), 800);
+}
+
 function addNote(note) {
-    let noteBox = document.createElement('div');
+    const notesSection = document.getElementById('notes');
+    const noteBox = document.createElement('div');
     noteBox.innerHTML = `
-        <span class="close" data-task="${note.name}">X</span>
         <h3>${note.name}</h3>
         <p>${note.body}</p>
         <em>
@@ -50,6 +53,14 @@ function addNote(note) {
             <time>${note.time}</time>
         </em>
     `;
+
+    const removeBtn = document.createElement('span');
+    removeBtn.classList.add('close');
+    removeBtn.dataset.task = note.name;
+    removeBtn.innerText = 'X';
+    removeBtn.addEventListener('click', () => removeNote(removeBtn))
+
     noteBox.classList.add('note');
     notesSection.appendChild(noteBox);
+    noteBox.appendChild(removeBtn)
 }

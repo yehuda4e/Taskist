@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url(https://thumbs.dreamstime.com/b/note-board-texture-background-62620593.jpg);
+  background-image: url(../bg.jpg);
   background-size: contain;
   display: -webkit-box;
   display: -ms-flexbox;
