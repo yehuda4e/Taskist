@@ -9,6 +9,7 @@
 body {
   background-image: url(../bg.jpg);
   background-size: contain;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -52,7 +53,7 @@ input {
   border-bottom: 3px solid blue;
   margin-bottom: 8px;
   padding: 8px;
-  padding-left: 16px;
+  padding-left: 65px;
   width: 100%;
 }
 
@@ -60,10 +61,11 @@ button {
   background-color: #e3e3e3;
   border: 1px dashed black;
   padding: 5px;
+  cursor: pointer;
 }
 
 label, button {
-  margin-left: 16px;
+  margin-left: 65px;
 }
 
 label, input {
